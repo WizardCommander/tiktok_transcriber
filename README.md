@@ -35,7 +35,7 @@ Start small first:
 
 ```bash
 python3 -m tiktok_transcriber sync-profile \
-  --profile-url 'https://www.tiktok.com/@deltatrendtrading' \
+  --profile-url 'profile_url' \
   --limit 3 \
   --gemini-model gemini-2.5-flash
 ```
@@ -44,7 +44,7 @@ Use local Whisper instead of OpenAI transcription:
 
 ```bash
 python3 -m tiktok_transcriber sync-profile \
-  --profile-url 'https://www.tiktok.com/@deltatrendtrading' \
+  --profile-url 'profile_url' \
   --limit 3 \
   --transcription-provider whisper-local \
   --whisper-model small
@@ -54,7 +54,7 @@ Skip Gemini while testing the downloader/transcriber path:
 
 ```bash
 python3 -m tiktok_transcriber sync-profile \
-  --profile-url 'https://www.tiktok.com/@deltatrendtrading' \
+  --profile-url 'profile_url' \
   --limit 3 \
   --skip-scene-descriptions
 ```
