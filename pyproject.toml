@@ -1,0 +1,41 @@
+[project]
+name = "tiktok-transcriber"
+version = "0.1.0"
+description = "CLI for downloading, transcribing, and describing TikTok profiles"
+requires-python = ">=3.12"
+dependencies = [
+  "faster-whisper>=1.2.1,<2",
+  "openai>=1.55.3,<2",
+  "opencv-python-headless>=4.13.0.92,<5",
+  "python-dotenv>=1.0.1,<2",
+  "requests>=2.32.3,<3",
+  "yt-dlp>=2026.3.3",
+]
+
+[project.optional-dependencies]
+dev = [
+  "black>=24.10.0",
+  "mypy>=1.13.0",
+  "pytest>=8.3.3",
+]
+
+[project.scripts]
+tiktok-transcriber = "tiktok_transcriber.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_unused_configs = true
+packages = ["tiktok_transcriber"]
+
+[[tool.mypy.overrides]]
+module = ["faster_whisper", "yt_dlp", "yt_dlp.*"]
+ignore_missing_imports = true
